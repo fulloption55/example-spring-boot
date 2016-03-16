@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Configuration shutdownHook="disable">
+    <Appenders>
+        <RollingFile name="rollingFile" fileName="/data/logs/@project.name@/@project.name@.log"
+                     filePattern="/data/logs/@project.name@/$${date:yyyy-MM}/@project.name@-%d{yyyy-MM-dd}.log.%i">
+            <PatternLayout pattern="%d{dd/MM/yyyy HH:mm:ss:SSS} | %-5p | %X{transactionId} | %X{threadId} | %X{IPAddress} | %c | xxx | %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="200MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="rollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
