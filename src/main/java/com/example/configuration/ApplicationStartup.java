@@ -13,3 +13,4 @@ public class ApplicationStartup
     public void onApplicationEvent(final ApplicationReadyEvent event) {
         return;
     }
+}
